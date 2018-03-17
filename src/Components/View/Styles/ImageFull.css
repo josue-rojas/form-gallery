@@ -1,0 +1,19 @@
+.imagewrapper {
+  width: 100vw;
+}
+
+.imagefull-info {
+  width: 100vw;
+}
+
+
+@media (min-width: 992px) {
+  .imagewrapper {
+    width: calc(100vw - 300px);
+    height: 100vh;
+  }
+  .imagefull-info {
+    width: 300px;
+    min-height: 100vh;
+  }
+}
