@@ -1,0 +1,2 @@
+body{margin:0;padding:0;font-family:sans-serif}.imageBox-hover{opacity:0}.imageBox-hover:hover{opacity:1}.imageBox{width:100%}@media (min-width:576px){.imageBox{width:50%}}@media (min-width:992px){.imageBox{width:20%}}.imagefull-info,.imagewrapper{width:100vw}@media (min-width:992px){.imagewrapper{width:calc(100vw - 300px);height:100vh}.imagefull-info{width:300px;min-height:100vh}}
+/*# sourceMappingURL=main.216ed449.css.map*/
