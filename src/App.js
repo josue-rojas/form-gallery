@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import ImageBox from './Components/View/ImageBox'
-import ImageFull from './Components/View/ImageFull'
+import ImageBox from './Components/View/ImageBox';
+import ImageFull from './Components/View/ImageFull';
+import NavBar from './Components/View/NavBar';
 
 export default class App extends Component {
   constructor(props){
@@ -71,6 +72,9 @@ export default class App extends Component {
           isActive={this.state.imageFullActive}
           handleClick={this.imageFullHide}/>
         <div style={style.imageBoxWrapper}>
+          <NavBar
+            title={'Form Gallery'}
+            subtitle={'A simple react gallery'}/>
           {this.state.imageBox}
         </div>
       </div>

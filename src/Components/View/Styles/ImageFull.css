@@ -1,5 +1,14 @@
+.imagefull {
+  flex-direction: column;
+}
 .imagewrapper {
   width: 100vw;
+  display: table;
+  margin: auto;
+}
+.imagewrapper img {
+  display: table-cell;
+  vertical-align: middle;
 }
 
 .imagefull-info {
@@ -8,9 +17,13 @@
 
 
 @media (min-width: 992px) {
+  .imagefull {
+    flex-direction: row;
+  }
   .imagewrapper {
     width: calc(100vw - 300px);
     height: 100vh;
+    display: flex;
   }
   .imagefull-info {
     width: 300px;

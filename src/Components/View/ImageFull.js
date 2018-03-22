@@ -5,16 +5,16 @@ export default class ImageFull extends Component {
   render() {
     const style = {
       imageFull: {
-        position: 'absolute',
+        position: 'fixed',
         width: '100vw',
-        minHeight: '100vh',
+        height: '100vh',
+        overflow: 'scroll',
         backgroundColor: 'rgba(0,0,0,.8)',
         zIndex: '2',
-        display: this.props.isActive ? '' : 'none'
+        display: this.props.isActive ? 'flex' : 'none'
       },
       imagewrapper: {
         float: 'left',
-        display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
       },
@@ -57,12 +57,12 @@ export default class ImageFull extends Component {
       }
     }
     return (
-      <div style={style.imageFull}>
+      <div style={style.imageFull} className='imagefull'>
         <div style={style.imagewrapper} className='imagewrapper'>
           <img style={style.image} src={this.props.imageSrc}/>
         </div>
-        <div style={style.info} className='imagefull-info' onClick={this.props.handleClick}>
-          <div style={style.cross}>
+        <div style={style.info} className='imagefull-info'>
+          <div style={style.cross} onClick={this.props.handleClick}>
             <div style={style.fLine}/>
             <div style={style.sLine}/>
           </div>
@@ -70,6 +70,7 @@ export default class ImageFull extends Component {
             {this.props.title}
           </div>
           {this.props.description}
+          <div><a target='_blank' href={this.props.imageSrc}>Direct Link</a></div>
         </div>
       </div>
     )
