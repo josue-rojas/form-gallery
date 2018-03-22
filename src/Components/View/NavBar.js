@@ -39,6 +39,10 @@ export default class NavBar extends Component {
       subtitle: {
         fontSize: '.95rem',
       },
+      burgerWrapper: {
+        display: 'flex',
+        alignItems: 'center',
+      },
       links: {
         display: 'flex',
         alignItems: 'center',
@@ -53,8 +57,10 @@ export default class NavBar extends Component {
           <div style={style.title}>{this.props.title}</div>
           <div style={style.subtitle}>{this.props.subtitle}</div>
         </div>
-        <Burger
-          handleClick={()=>this.menuTrigger(true)}/>
+        <div style={style.burgerWrapper}>
+          <Burger
+            handleClick={()=>this.menuTrigger(true)}/>
+        </div>
         <div style={style.links} className={'Menu ' + this.state.isActive}>
           <div style={style.closeIcon}>
             <Burger
