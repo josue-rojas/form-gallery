@@ -2,16 +2,24 @@ import React, { Component } from 'react';
 import './Styles/ImageFull.css';
 
 export default class ImageFull extends Component {
-  render() {
+  render(){
     const style = {
-      imageFull: {
-        position: 'fixed',
+      ImageFullWrapper: {
+        display: this.props.isActive ? 'flex' : 'none',
+      },
+      shade: {
         width: '100vw',
         height: '100vh',
-        overflow: 'scroll',
+        position: 'fixed',
         backgroundColor: 'rgba(0,0,0,.8)',
         zIndex: '2',
-        display: this.props.isActive ? 'flex' : 'none'
+      },
+      ImageFull: {
+        zIndex: '3',
+        position: 'absolute',
+        width: '100vw',
+        minHeight: '100vh',
+        display: 'flex',
       },
       imagewrapper: {
         float: 'left',
@@ -56,21 +64,25 @@ export default class ImageFull extends Component {
       title: {
       }
     }
-    return (
-      <div style={style.imageFull} className='imagefull'>
-        <div style={style.imagewrapper} className='imagewrapper'>
-          <img style={style.image} src={this.props.imageSrc}/>
-        </div>
-        <div style={style.info} className='imagefull-info'>
-          <div style={style.cross} onClick={this.props.handleClick}>
-            <div style={style.fLine}/>
-            <div style={style.sLine}/>
+
+    return(
+      <div style={style.ImageFullWrapper}>
+        <div style={style.shade}></div>
+        <div style={style.ImageFull} className='imagefull'>
+          <div style={style.imagewrapper} className='imagewrapper'>
+            <img style={style.image} src={this.props.imageSrc}/>
           </div>
-          <div style={style.title}>
-            {this.props.title}
+          <div style={style.info} className='imagefull-info'>
+            <div style={style.cross} onClick={this.props.handleClick}>
+              <div style={style.fLine}/>
+              <div style={style.sLine}/>
+            </div>
+            <div style={style.title}>
+              {this.props.title}
+            </div>
+            {this.props.description}
+            <div><a target='_blank' href={this.props.imageSrc}>Direct Link</a></div>
           </div>
-          {this.props.description}
-          <div><a target='_blank' href={this.props.imageSrc}>Direct Link</a></div>
         </div>
       </div>
     )
