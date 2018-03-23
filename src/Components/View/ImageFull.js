@@ -5,7 +5,6 @@ export default class ImageFull extends Component {
   render(){
     const style = {
       ImageFullWrapper: {
-        display: this.props.isActive ? 'flex' : 'none',
       },
       shade: {
         width: '100vw',
@@ -34,20 +33,20 @@ export default class ImageFull extends Component {
       info: {
         float: 'right',
         backgroundColor: 'white',
+        padding: '5px 15px 15px',
+        textAlign: 'center',
       },
       cross: {
         width: '32px',
         height: '32px',
         position: 'relative',
-        float: 'right',
-        margin: '5px',
+        marginLeft: 'auto',
         cursor: 'pointer',
       },
       fLine: {
         height: '5px',
         width: '32px',
         backgroundColor: 'black',
-        borderRadius: '3px',
         transform: 'rotate(45deg)',
         marginTop: '50%',
         position: 'absolute',
@@ -56,24 +55,25 @@ export default class ImageFull extends Component {
         height: '5px',
         width: '32px',
         backgroundColor: 'black',
-        borderRadius: '3px',
         transform: 'rotate(-45deg)',
         marginTop: '50%',
         position: 'absolute',
       },
       title: {
+        fontSize: '1.25rem',
+        fontWeight: '800',
       }
     }
 
     return(
-      <div style={style.ImageFullWrapper}>
+      <div style={style.ImageFullWrapper} className={'ImgeFullWrapper ' + (this.props.isActive ? 'show' : 'hide')}>
         <div style={style.shade}></div>
         <div style={style.ImageFull} className='imagefull'>
           <div style={style.imagewrapper} className='imagewrapper'>
             <img style={style.image} src={this.props.imageSrc}/>
           </div>
           <div style={style.info} className='imagefull-info'>
-            <div style={style.cross} onClick={this.props.handleClick}>
+            <div style={style.cross} onClick={this.props.handleClick} className='cross'>
               <div style={style.fLine}/>
               <div style={style.sLine}/>
             </div>
