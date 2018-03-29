@@ -7,6 +7,7 @@ export default class ImageBox extends Component {
     super(props);
     this.state = {
       loaded: false,
+      error: false,
     }
     this.handleClick = this.handleClick.bind(this);
     // this.handleImageLoad = this.handleImageLoad.bind(this);
@@ -21,11 +22,15 @@ export default class ImageBox extends Component {
     temp_img.onload = ()=>{
       this.setState({loaded: true})
     }
+    temp_img.onerror = ()=>{
+      this.setState({error:true})
+    }
     temp_img.src = this.props.imageLink
   }
   render() {
     const style = {
       image: {
+        display: this.state.error ? 'none' : '',
         backgroundImage: 'url('+this.props.imageLink + ')',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
