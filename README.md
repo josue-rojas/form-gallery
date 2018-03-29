@@ -18,3 +18,7 @@ cd form-gallery
 npm install
 npm start
 ```
+
+
+#### TODO
+- https://www.javascriptstuff.com/detect-image-load/

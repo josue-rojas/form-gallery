@@ -1,82 +1,42 @@
 import React, { Component } from 'react';
-import ImageBox from './Components/View/ImageBox';
-import ImageFull from './Components/View/ImageFull';
+import GalleryView from './Components/View/GalleryView';
+import AboutView from './Components/View/AboutView';
 import NavBar from './Components/View/NavBar';
 
 export default class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      hasData: false,
-      imageFullActive: false,
-      imageFullSrc: '',
-      imageFullTitle: '',
-      imageFullDescription: '',
-      imageBox: [],
+      activeView: window.location.hash,
     }
-    this.imageClick = this.imageClick.bind(this);
-    this.imageFullHide = this.imageFullHide.bind(this);
+    this.changeWindow = this.changeWindow.bind(this);
   }
 
   componentDidMount(){
-    fetch('https://spreadsheets.google.com/feeds/list/1zMxMQObYBTBHPHRinU0qN0avLBWMx0QL7o_KPszkwhk/1/public/values?alt=json')
-    .then((responce) => {
-      return responce.json();
-    })
-    .then((data) => {
-      const imageBox = [];
-      for(let i = 0 ; i < data.feed.entry.length; i++){
-        imageBox.push(
-          <ImageBox
-            imageLink={data.feed.entry[i]['gsx$linktoimage']['$t']}
-            title={data.feed.entry[i]['gsx$titleofimage']['$t']}
-            description={data.feed.entry[i]['gsx$description']['$t']}
-            handleClick={this.imageClick}/>
-        )
-      }
-      this.setState({
-        imageBox: imageBox,
-        hasData: true,
-      })
-    })
+    window.addEventListener("hashchange", this.changeWindow, false);
   }
 
-  imageClick(imageLink, title, description) {
-    this.setState({
-      imageFullSrc: imageLink,
-      imageFullTitle: title,
-      imageFullDescription: description,
-      imageFullActive: true,
-    })
+  componentWillUnmount() {
+    window.removeEventListener("hashchange", this.changeWindow, false);
   }
 
-  imageFullHide(){
+  changeWindow(h){
     this.setState({
-      imageFullActive: false,
+      activeView: window.location.hash,
     })
   }
 
   render() {
-    const style = {
-      imageBoxWrapper: {
-        position: this.state.imageFullActive ? 'fixed' : '',
-        width: '100vw',
-      },
-    }
+    const galleryView = (<GalleryView/>)
+    const aboutView = (<AboutView/>)
+    const active_view = this.state.activeView === '#About' ? aboutView : galleryView;
     return (
       <div className="View">
-        <ImageFull
-          imageSrc={this.state.imageFullSrc}
-          title={this.state.imageFullTitle}
-          description={this.state.imageFullDescription}
-          isActive={this.state.imageFullActive}
-          handleClick={this.imageFullHide}/>
-        <div style={style.imageBoxWrapper}>
-          <NavBar
-            title={'Form Gallery'}
-            subtitle={'A simple react gallery'}/>
-          {this.state.imageBox}
-        </div>
+        <NavBar
+          title={'Form Gallery'}
+          subtitle={'A simple react gallery'}
+          activeView={this.state.activeView}/>
+        {active_view}
       </div>
     );
   }
