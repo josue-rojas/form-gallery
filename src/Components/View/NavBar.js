@@ -67,8 +67,8 @@ export default class NavBar extends Component {
               fallingBurger={true}
               handleClick={()=>this.menuTrigger(false)}/>
           </div>
-          <a href='/#'>Home</a>
-          <a href='/#About'>About</a>
+          <a href='/#' onClick={()=>this.menuTrigger(false)}>Home</a>
+          <a href='/#About' onClick={()=>this.menuTrigger(false)}>About</a>
           <a href='https://goo.gl/forms/KmZMP8oJ0B5mKMUr1'>Submit</a>
           <a href='https://github.com/josuerojasrojas/form-gallery'>Source</a>
         </div>

@@ -47,6 +47,7 @@ export default class GalleryView extends Component {
       imageFullDescription: description,
       imageFullActive: true,
     })
+    // push imageFullActive so it can be handled by other Components
     // this.props.handleImageClick(true);
   }
 

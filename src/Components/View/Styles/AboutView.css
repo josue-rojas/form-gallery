@@ -1,0 +1,15 @@
+.About {
+  width: 100%;
+  margin: auto;
+}
+@media (min-width: 576px) {
+  .About {
+    width: 80%;
+  }
+}
+
+@media (min-width: 992px) {
+  .About {
+    width: 50%;
+  }
+}

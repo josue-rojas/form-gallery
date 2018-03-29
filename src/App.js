@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import GalleryView from './Components/View/GalleryView';
+import AboutView from './Components/View/AboutView';
 import NavBar from './Components/View/NavBar';
 
 export default class App extends Component {
@@ -27,18 +28,14 @@ export default class App extends Component {
 
   render() {
     const galleryView = (<GalleryView/>)
-    const AboutView = (
-      <div>
-        About
-      </div>
-    )
-
-    const active_view = this.state.activeView === '#About' ? AboutView : galleryView;
+    const aboutView = (<AboutView/>)
+    const active_view = this.state.activeView === '#About' ? aboutView : galleryView;
     return (
       <div className="View">
         <NavBar
           title={'Form Gallery'}
-          subtitle={'A simple react gallery'}/>
+          subtitle={'A simple react gallery'}
+          activeView={this.state.activeView}/>
         {active_view}
       </div>
     );
