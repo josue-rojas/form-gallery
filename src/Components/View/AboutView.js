@@ -29,7 +29,10 @@ export default class AboutView extends Component{
         <div style={style.text}>
           There aren't really many benefits using sheets as backend. The only one I can think of is it removes the need to manage a database (then again this isn't a big database).
         </div>
-        <div>Anyway</div>
+        <div style={style.title}>Anyway</div>
+        <div style={style.text}>
+          Check out the responce sheet <a href='https://docs.google.com/spreadsheets/d/e/2PACX-1vTMpkQJCt2pnGtnCQ5S1Xu6HXKGdy7NDJC5Q8P9xk-DBm6CYVlmCS2haDVa3XnZ_Xf1AAIWYq2Nf2CQ/pubhtml'>here</a>
+        </div>
       </div>
     )
   }
