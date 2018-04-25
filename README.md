@@ -9,6 +9,7 @@ https://goo.gl/forms/KmZMP8oJ0B5mKMUr1
 - React
 - [Loader](https://github.com/josuerojasrojas/react-loading)
 - [Google Sheets as backend](https://coderwall.com/p/duapqq/use-a-google-spreadsheet-as-your-json-backend)
+- [Script to change google uploaded images to direct links](https://github.com/josuerojasrojas/UploadtoImgr-googleForm)
 
 ### To run (very simple)
 
