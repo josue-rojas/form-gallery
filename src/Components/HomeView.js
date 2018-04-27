@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './Styles/HomeView.css';
 import ImageBox from './ImageBox';
+import FullImage from './FullImage';
+
 
 export default class HomeView extends Component {
   constructor(props) {
@@ -40,13 +42,26 @@ export default class HomeView extends Component {
   }
 
   imageClick(link, title, description) {
-    console.log(link)
+    this.setState({
+      imageFullSrc: link,
+      imageFullTitle: title,
+      imageFullDescription: description
+    })
+    this.props.clickImage(true);
   }
 
   render() {
     return(
       <div className='HomeView'>
-        {this.state.imageBox}
+        <FullImage
+          fullImageActive={this.props.fullImageActive}
+          clickImage={()=>this.props.clickImage(false)}
+          title={this.state.imageFullTitle}
+          description={this.state.imageFullDescription}
+          link={this.state.imageFullSrc}/>
+        <div class='images-boxes'>
+          {this.state.imageBox}
+        </div>
       </div>
     )
   }

@@ -16,7 +16,7 @@
   display: flex
   flex-direction: column
   z-index: 2
-  &.true
+  &.active
     transform: translate(0)
   .SideMenu-Burger
     position: absolute
@@ -41,7 +41,7 @@
           margin-top: 15px
           width: 70%
           border-bottom: 1px solid hsla(0,0%,100%,.2)
-          transition: 400ms width
+          transition: 400ms width, 400ms border-bottom
         &:hover
           .line
             width: 25%

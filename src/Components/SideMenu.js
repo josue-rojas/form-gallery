@@ -5,7 +5,7 @@ import Burger from './Burger';
 export default class SideMenu extends Component {
   render() {
     return (
-      <div className={'SideMenu ' + this.props.isActive}>
+      <div className={'SideMenu ' + (this.props.isActive ? 'active' : '')}>
         <div className='SideMenu-Burger'>
           <Burger
             handleClick={this.props.onClick}

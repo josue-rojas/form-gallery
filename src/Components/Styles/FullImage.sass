@@ -1,0 +1,124 @@
+@import './mixins.sass'
+@import './colors.sass'
+
+
+.FullImage
+  position: absolute
+  width: 100vw
+  height: 100vh
+  transform: translate(100%)
+  transition: transform 400ms
+  top: 0
+  left: 0
+  overflow: scroll
+  -webkit-overflow-scrolling: touch
+  display: flex
+  flex-direction: column
+  .sidebar
+    width: 100vw
+    position: relative
+    background-color: rgba(200, 50, 200, 0.298039)
+    padding-top: 50px
+    top: 0
+    left: 0
+    display: flex
+    flex-direction: column
+    z-index: 2
+    .sidebar-Burger
+      position: absolute
+      top: 0
+      right: 0
+    .info-wrapper
+      display: table
+      margin-bottom: auto
+      width: 100%
+    .info
+      display: flex
+      align-items: center
+      flex-direction: column
+      .title
+        font-size: 1.5rem
+      .link
+        margin-top: 3px
+        padding-top: 15px
+        transition: 400ms
+        width: 100%
+        text-align: center
+        font-size: 1.2rem
+        .line
+          margin: auto
+          margin-top: 15px
+          width: 70%
+          border-bottom: 1px solid hsla(0,0%,100%,.2)
+          transition: 400ms width, 400ms border-bottom
+        &:hover
+          .line
+            width: 25%
+            border-bottom: 1px solid $hover-color
+    .footer
+      display: flex
+      width: 100%
+      margin: 40px 0px 10px
+      font-size: 0.8rem
+      flex-direction: column
+      align-items: center
+      .icon-links
+        margin-bottom: 3px
+        .icon
+          cursor: pointer
+          width: 24px
+          height: 24px
+          margin: 7px
+          mask-size: cover
+          -webkit-marsk-size: cover
+          transition: background-color 400ms
+          background-color: $main-color
+          display: inline-block
+          &.facebook-icon
+            mask: url('../Images/facebook.svg')  no-repeat 50% 50%
+          &.instagram-icon
+            mask: url('../Images/instagram.svg')  no-repeat 50% 50%
+          &.linkedin-icon
+            mask: url('../Images/linkedin.svg')  no-repeat 50% 50%
+          &.github-icon
+            mask: url('../Images/github.svg')  no-repeat 50% 50%
+          &:hover
+            background-color: $hover-color
+  .image
+    width: 100vw
+    margin: auto
+    display: table
+  .image-wrapper
+    max-width: 100%
+    display: flex
+    justify-content: center
+    align-items: center
+    img
+      width: 100%
+      height: 100%
+  &.active
+    z-index: 100
+    transform: translate(0)
+  +large-devices
+    overflow: inherit
+    .sidebar
+      width: 300px
+      height: 100vh
+      right: 0
+      left: auto
+      position: absolute
+      overflow-y: scroll
+      -webkit-overflow-scrolling: touch
+    .sidebar-Burger .Burger-Wrapper
+      display: block
+    .image
+      height: 100vh
+      overflow: scroll
+      -webkit-overflow-scrolling: touch
+      margin: auto
+      display: block
+    .image-wrapper
+      max-width: calc(100% - 300px)
+      min-height: 100vh
+    .footer
+      margin: 20px 0px 10px
