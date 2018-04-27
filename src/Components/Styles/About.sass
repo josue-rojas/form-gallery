@@ -1,0 +1,20 @@
+@import './mixins.sass'
+
+.About
+  min-height: 40%
+  width: 100%
+  margin: auto
+  display: flex
+  justify-content: center
+  align-items: center
+  flex-direction: column
+  text-align: center
+  .title
+    font-size: 1.4rem
+  .text
+    margin: 5px 0 10px
+  +medium-devices
+    width: 80%
+  +large-devices
+    min-height: 60%
+    width: 50%

@@ -1,15 +1,23 @@
 import React, { Component } from 'react';
-import GalleryView from './Components/View/GalleryView';
-import AboutView from './Components/View/AboutView';
-import NavBar from './Components/View/NavBar';
+import SideMenu from './Components/SideMenu';
+import Burger from './Components/Burger';
+import HomeView from './Components/HomeView';
+import AboutView from './Components/AboutView';
+import './App.css';
 
-export default class App extends Component {
-  constructor(props){
+class App extends Component {
+  constructor(props) {
     super(props);
+    this.VIEWS = {
+      '#': true, // umm...
+      '#about': true,
+    }
     this.state = {
-      activeView: window.location.hash,
+      isMenuActive: false,
+      activeView: this.VIEWS[window.location.hash] ? window.location.hash : '#',
     }
     this.changeWindow = this.changeWindow.bind(this);
+    this.menuClick = this.menuClick.bind(this);
   }
 
   componentDidMount(){
@@ -22,22 +30,35 @@ export default class App extends Component {
 
   changeWindow(h){
     this.setState({
-      activeView: window.location.hash,
+      activeView: this.VIEWS[window.location.hash] ? window.location.hash : '#',
     })
   }
 
+  menuClick(state) {
+    this.setState({ isMenuActive: state })
+  }
+
   render() {
-    const galleryView = (<GalleryView/>)
-    const aboutView = (<AboutView/>)
-    const active_view = this.state.activeView === '#About' ? aboutView : galleryView;
+    const view = {
+      '#': (<HomeView/>),
+      '#about': (<AboutView/>)
+    }[this.state.activeView]
     return (
-      <div className="View">
-        <NavBar
-          title={'Form Gallery'}
-          subtitle={'A simple react gallery'}
-          activeView={this.state.activeView}/>
-        {active_view}
+      <div className="App">
+        <div className={'App-Burger ' + this.state.isMenuActive}>
+          <Burger
+            handleClick={()=> this.menuClick(true)}
+            fallingBurger={false}/>
+        </div>
+        <SideMenu
+          onClick={()=> this.menuClick(false)}
+          isActive={this.state.isMenuActive}/>
+        <div className={'view-wrapper ' + this.state.isMenuActive}>
+          {view}
+        </div>
       </div>
     );
   }
 }
+
+export default App;

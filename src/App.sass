@@ -1,0 +1,22 @@
+@import './Components/Styles/mixins.sass'
+
+.App-Burger
+  position: absolute
+  top: 0
+  right: 0
+  opacity: 1
+  transition: 400ms
+  &.true
+    opacity: 0
+
+.view-wrapper
+  padding: 50px 0 0 0
+  transition: filter 300ms
+  height: 100vh
+  overflow-y: scroll
+  &.true
+    filter: blur(15px)
+  +large-devices
+    padding: 0 300px 0 0
+    &.true
+      filter: blur(0)

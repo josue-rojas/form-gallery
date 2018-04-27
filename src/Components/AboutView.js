@@ -1,36 +1,21 @@
 import React, { Component } from 'react';
-import './Styles/AboutView.css';
+import './Styles/About.css';
 
-export default class AboutView extends Component{
+// TODO change or add aother box to make text clear to read
+export default class AboutView extends Component {
   render() {
-    const style = {
-      aboutwrapper: {
-        textAlign: 'center',
-      },
-      title: {
-        fontSize: '1.4rem'
-      },
-      text: {
-        margin: '5px 0 10px',
-      },
-      image: {
-        width: '100%',
-        display: 'flex',
-        justifyContent: 'center',
-      }
-    }
     return(
-      <div style={style.aboutwrapper} className='About'>
-        <div style={style.title}>About</div>
-        <div style={style.text}>
+      <div className='About'>
+        <div className='title'>About</div>
+        <div className='text'>
           Although this is a simple react gallery, the point is to use <a href='https://www.google.com/sheets/about/'>google sheets</a> as backend and get user inputs using <a href='https://www.google.com/forms/about/'>google forms</a>. The form updates the sheet and the data is pulled from there to here.
         </div>
-        <div style={style.title}>Benefits</div>
-        <div style={style.text}>
+        <div className='title'>Benefits</div>
+        <div className='text'>
           There aren't really many benefits using sheets as backend. The only one I can think of is it removes the need to manage a database (then again this isn't a big database).
         </div>
-        <div style={style.title}>Anyway</div>
-        <div style={style.text}>
+        <div className='title'>Anyway</div>
+        <div className='text'>
           Check out the responce sheet <a href='https://docs.google.com/spreadsheets/d/e/2PACX-1vTMpkQJCt2pnGtnCQ5S1Xu6HXKGdy7NDJC5Q8P9xk-DBm6CYVlmCS2haDVa3XnZ_Xf1AAIWYq2Nf2CQ/pubhtml'>here</a>
         </div>
       </div>
