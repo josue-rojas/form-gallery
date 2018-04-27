@@ -48,7 +48,8 @@ class App extends Component {
         <div className='SideMenu-wrapper'>
           <SideMenu
             onClick={()=> this.menuClick(false)}
-            isActive={this.state.isMenuActive}/>
+            isActive={this.state.isMenuActive}
+            linkClick={()=> this.menuClick(false)}/>
         </div>
         <div className={'App-Burger ' + this.state.isMenuActive}>
           <Burger

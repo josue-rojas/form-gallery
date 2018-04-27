@@ -13,8 +13,8 @@ export default class SideMenu extends Component {
         </div>
         <div className='links-wrapper'>
           <div className='links'>
-            <a href='#'>Home <div className='line'/></a>
-            <a href='#about'>About<div className='line'/></a>
+            <a href='#' onClick={this.props.linkClick}>Home <div className='line'/></a>
+            <a href='#about' onClick={this.props.linkClick}>About<div className='line'/></a>
             <a href='https://goo.gl/forms/KmZMP8oJ0B5mKMUr1'>Submit<div className='line'/></a>
             <a href='https://github.com/josuerojasrojas/form-gallery'>Source<div className='line'/></a>
         </div>
