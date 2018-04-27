@@ -26,6 +26,7 @@ export default class ImageBox extends Component {
     }
     temp_img.src = this.props.imageLink
   }
+
   render() {
     const style = {
       image: {

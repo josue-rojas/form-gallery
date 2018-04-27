@@ -14,10 +14,12 @@ class App extends Component {
     }
     this.state = {
       isMenuActive: false,
+      fullImageActive: false,
       activeView: this.VIEWS[window.location.hash] ? window.location.hash : '#',
     }
     this.changeWindow = this.changeWindow.bind(this);
     this.menuClick = this.menuClick.bind(this);
+    this.clickImage = this.clickImage.bind(this);
   }
 
   componentDidMount(){
@@ -35,16 +37,22 @@ class App extends Component {
   }
 
   menuClick(state) {
-    this.setState({ isMenuActive: state })
+    this.setState({ isMenuActive: state });
+  }
+
+  clickImage(state) {
+    this.setState({ fullImageActive: state });
   }
 
   render() {
     const view = {
-      '#': (<HomeView/>),
+      '#': (<HomeView
+        fullImageActive={this.state.fullImageActive}
+        clickImage={this.clickImage}/>),
       '#about': (<AboutView/>)
     }[this.state.activeView]
     return (
-      <div className={'App ' + this.state.isMenuActive}>
+      <div className={'App ' + (this.state.isMenuActive ? 'menu-active' : '') +  (this.state.fullImageActive ? 'full-image-active' : '')}>
         <div className={'SideMenu-wrapper'}>
           <SideMenu
             onClick={()=> this.menuClick(false)}

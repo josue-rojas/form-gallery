@@ -12,13 +12,15 @@
     min-height: 100vh
     overflow-x: hidden
     position: absolute
+    .SideMenu
+      transition: 400ms opacity, 400ms filter
   .view-wrapper
     transition: filter 300ms, opacity 300ms
     opacity: 1
     height: 100vh
     overflow-y: scroll
     -webkit-overflow-scrolling: touch
-  &.true
+  &.menu-active
     .App-Burger
       opacity: 0
     .view-wrapper
@@ -27,6 +29,9 @@
       overflow-y: hidden
     .SideMenu-wrapper
       z-index: 4
+  &.full-image-active
+    .App-Burger
+      opacity: 0
   +large-devices
     .SideMenu-wrapper
       width: 0
@@ -35,10 +40,14 @@
       position: inherit
     .view-wrapper
       padding: 0 300px 0 0
-    &.true
+    &.menu-active
       .view-wrapper
         filter: blur(0)
         opacity: 1
         overflow-y: scroll
       .SideMenu-wrapper
         z-index: auto
+    &.full-image-active
+      .SideMenu-wrapper .SideMenu
+        opacity: .7
+        filter: blur(5px)
