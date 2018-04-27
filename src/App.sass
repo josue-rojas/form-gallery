@@ -6,16 +6,25 @@
   right: 0
   opacity: 1
   transition: 400ms
+  z-index: 2
   &.true
     opacity: 0
+    z-index: 1
+
+.SideMenu-wrapper
+  width: 100vw
+  min-height: 100vh
+  overflow-x: hidden
+  position: absolute
 
 .view-wrapper
-  padding: 50px 0 0 0
   transition: filter 300ms
   height: 100vh
   overflow-y: scroll
+  -webkit-overflow-scrolling: touch
   &.true
     filter: blur(15px)
+    overflow: hidden
   +large-devices
     padding: 0 300px 0 0
     &.true

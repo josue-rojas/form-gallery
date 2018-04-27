@@ -45,14 +45,16 @@ class App extends Component {
     }[this.state.activeView]
     return (
       <div className="App">
+        <div className='SideMenu-wrapper'>
+          <SideMenu
+            onClick={()=> this.menuClick(false)}
+            isActive={this.state.isMenuActive}/>
+        </div>
         <div className={'App-Burger ' + this.state.isMenuActive}>
           <Burger
             handleClick={()=> this.menuClick(true)}
             fallingBurger={false}/>
         </div>
-        <SideMenu
-          onClick={()=> this.menuClick(false)}
-          isActive={this.state.isMenuActive}/>
         <div className={'view-wrapper ' + this.state.isMenuActive}>
           {view}
         </div>
