@@ -5,7 +5,7 @@ import './Styles/FullImage.css';
 export default class FullImage extends Component {
   render() {
     return(
-      <div className={'FullImage ' + (this.props.fullImageActive ? 'active' : '')}>
+      <div className={'FullImage ' + (this.props.fullImageActive ? 'active' : 'not-active')}>
         <div className='image'>
           <div className='image-wrapper'>
             <img src={this.props.link}/>

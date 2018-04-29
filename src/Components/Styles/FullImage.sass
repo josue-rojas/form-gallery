@@ -6,8 +6,8 @@
   position: absolute
   width: 100vw
   height: 100vh
-  transform: translate(100%)
-  transition: transform 400ms
+  z-index: 100
+  overflow-x: hidden
   top: 0
   left: 0
   overflow: scroll
@@ -17,9 +17,6 @@
   .sidebar
     width: 100vw
     position: relative
-    // position: absolute
-    // // display: flex
-    // // flex-direction: column
     background-color: rgba(200, 50, 200, 0.298039)
     padding-top: 50px
     top: 0
@@ -99,8 +96,9 @@
       width: 100%
       height: 100%
   &.active
-    z-index: 100
-    transform: translate(0)
+    animation: slide .4s forwards
+  &.not-active
+    animation: slide-back .4s forwards
   +large-devices
     overflow: inherit
     .sidebar
@@ -109,7 +107,6 @@
       right: 0
       left: auto
       position: absolute
-      // position: absolute
       display: flex
       flex-direction: column
       overflow-y: scroll
@@ -127,3 +124,20 @@
       min-height: 100vh
     .footer
       margin: 20px 0px 10px
+
++keyframes(slide-back)
+  0%
+    transform: translateX(0)
+  99.9999%
+    transform: translateX(100%)
+  100%
+    transform: translateX(0)
+    opacity: 0
+    visibility: hidden
+
++keyframes(slide)
+  0%
+    visibility: visible
+    transform: translateX(100%)
+  100%
+    transform: translateX(0)
