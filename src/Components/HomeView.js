@@ -28,6 +28,7 @@ export default class HomeView extends Component {
       for(let i = 0 ; i < data.feed.entry.length; i++){
         imageBox.push(
           <ImageBox
+            key={`ImageBox${i}`}
             imageLink={data.feed.entry[i]['gsx$linktoimage']['$t']}
             title={data.feed.entry[i]['gsx$titleofimage']['$t']}
             description={data.feed.entry[i]['gsx$description']['$t']}
@@ -53,15 +54,15 @@ export default class HomeView extends Component {
   render() {
     return(
       <div className='HomeView'>
+        <div className='images-boxes'>
+          {this.state.imageBox}
+        </div>
         <FullImage
           fullImageActive={this.props.fullImageActive}
           clickImage={()=>this.props.clickImage(false)}
           title={this.state.imageFullTitle}
           description={this.state.imageFullDescription}
           link={this.state.imageFullSrc}/>
-        <div class='images-boxes'>
-          {this.state.imageBox}
-        </div>
       </div>
     )
   }

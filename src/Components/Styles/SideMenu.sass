@@ -2,22 +2,24 @@
 @import './colors.sass'
 
 .SideMenu
+  position: fixed
   overflow-y: scroll
   -webkit-overflow-scrolling: touch
   width: 100vw
-  position: absolute
+  // position: absolute
   height: 100vh
   background-color: rgba(200, 50, 200, 0.298039)
-  transform: translate(100%)
-  transition: transform 400ms
   padding-top: 50px
+  z-index: 100
   top: 0
   left: 0
   display: flex
   flex-direction: column
-  z-index: 2
+  // transform: translateX(100%)
   &.active
-    transform: translate(0)
+    animation: slide .4s forwards
+  &.not-active
+    animation: slide-back .4s forwards
   .SideMenu-Burger
     position: absolute
     top: 0
@@ -76,7 +78,32 @@
         &:hover
           background-color: $hover-color
   +large-devices
-    transform: translateY(0)
+    // transform: translateY(0)
     width: 300px
     right: 0
     left: auto
+    &.active
+      animation: none
+    &.not-active
+      animation: none
+
++keyframes(slide-back)
+  0%
+    transform: translateX(0)
+    opacity: 1
+  99.9999%
+    transform: translateX(100%)
+    opacity: 1
+    visibility: visible
+  100%
+    // transform: translateX(0)
+    transform: translateX(-100%)
+    opacity: 0
+    visibility: hidden
+
++keyframes(slide)
+  0%
+    visibility: visible
+    transform: translateX(100%)
+  100%
+    transform: translateX(0)

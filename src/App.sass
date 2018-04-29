@@ -2,26 +2,37 @@
 
 .App
   width: 100vw
-  overflow-x: hidden
+  // overflow-x: hidden
+  position: relative
+  // min-height: 100vh
+  .Background
+    background: linear-gradient(rgba(50,50,255,.4), rgba(200,50,200,.3))
+    background-position: center
+    background-repeat: no-repeat
+    background-size: cover
+    height: 100vh
+    width: 100vw
+    position: fixed
+    z-index: -1
   .App-Burger
-    position: absolute
+    position: fixed
     top: 0
     right: 0
     opacity: 1
     transition: 400ms opacity
-  .SideMenu-wrapper
-    width: 100vw
-    min-height: 100vh
-    overflow-x: hidden
-    position: absolute
-    .SideMenu
-      transition: 400ms opacity, 400ms filter
+  // .SideMenu-wrapper
+  //   width: 100vw
+  //   min-height: 100vh
+  //   overflow-x: hidden
+  //   position: absolute
+  //   .SideMenu
+  //     transition: 400ms opacity, 400ms filter
   .view-wrapper
     transition: filter 300ms, opacity 300ms
     opacity: 1
-    height: 100vh
-    overflow-y: scroll
-    -webkit-overflow-scrolling: touch
+    // height: 100vh
+    // overflow-y: scroll
+    // -webkit-overflow-scrolling: touch
   &.menu-active
     .App-Burger
       opacity: 0
@@ -29,19 +40,21 @@
       filter: blur(15px)
       opacity: .3
       overflow-y: hidden
-    .SideMenu-wrapper
-      z-index: 4
+      // height: 100vh
+    // .SideMenu-wrapper
+    //   z-index: 4
   &.full-image-active
     .App-Burger
       opacity: 0
     .view-wrapper
+      // height: 100vh
       overflow-y: hidden
   +large-devices
-    .SideMenu-wrapper
-      width: 0
-      min-height: 0
-      overflow: auto
-      position: inherit
+    // .SideMenu-wrapper
+    //   width: 0
+    //   min-height: 0
+    //   overflow: auto
+    //   position: inherit
     .view-wrapper
       padding: 0 300px 0 0
     &.menu-active
@@ -49,9 +62,9 @@
         filter: blur(0)
         opacity: 1
         overflow-y: scroll
-      .SideMenu-wrapper
-        z-index: auto
+      // .SideMenu-wrapper
+      //   z-index: auto
     &.full-image-active
-      .SideMenu-wrapper .SideMenu
+      .SideMenu
         opacity: .7
         filter: blur(5px)
