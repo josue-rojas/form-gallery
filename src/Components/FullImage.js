@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Burger from './Burger';
+import Footer from './Footer';
 import './Styles/FullImage.css';
 
 export default class FullImage extends Component {
@@ -24,25 +25,7 @@ export default class FullImage extends Component {
               <a className='link' href={this.props.link}>Direct Link<div className='line'/></a>
             </div>
           </div>
-          <div className='footer'>
-            <div className='icon-links'>
-              <div
-                onClick={()=> window.location = 'https://github.com/josuerojasrojas' }
-                className='icon github-icon'/>
-              <div
-                onClick={()=> window.location = 'https://www.linkedin.com/in/josuerojasz/' }
-                className='icon linkedin-icon'/>
-              <div
-                onClick={()=> window.location = 'https://www.facebook.com/withcheesepls' }
-                className='icon facebook-icon'/>
-              <div
-                onClick={()=> window.location = 'https://www.instagram.com/withcheesepls/' }
-                className='icon instagram-icon'/>
-            </div>
-            <div className='credits'>
-              Developed by<a href="http://josuerojasrojas.github.io">&nbsp;Josue Rojas</a>
-            </div>
-          </div>
+        <Footer/>
         </div>
       </div>
     )
