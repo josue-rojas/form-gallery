@@ -1,4 +1,5 @@
 @import './mixins.sass'
+@import 'colors.sass'
 
 .About
   min-height: 40%
@@ -9,6 +10,12 @@
   align-items: center
   flex-direction: column
   text-align: center
+  .info-wrapper
+    border: 1px solid $main-color
+    margin-top: 50px
+    padding: 5px 10px
+    background-color: rgba(200, 50, 200, 0.298039)
+    border-radius: 5px
   .title
     font-size: 1.4rem
   .text
@@ -18,3 +25,5 @@
   +large-devices
     min-height: 60%
     width: 50%
+    .info-wrapper
+      padding: 15px

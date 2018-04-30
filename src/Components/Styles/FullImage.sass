@@ -37,6 +37,7 @@
       .title
         font-size: 1.5rem
       .link
+        color: $main-color
         margin-top: 3px
         padding-top: 15px
         transition: 400ms
@@ -46,10 +47,11 @@
         .line
           margin: auto
           margin-top: 15px
-          width: 70%
+          width: 50%
           border-bottom: 1px solid hsla(0,0%,100%,.2)
           transition: 400ms width, 400ms border-bottom
         &:hover
+          color: $hover-color
           .line
             width: 25%
             border-bottom: 1px solid $hover-color
@@ -111,6 +113,8 @@
       flex-direction: column
       overflow-y: scroll
       -webkit-overflow-scrolling: touch
+      .info-wrapper .info .line
+        width: 60%
     .sidebar-Burger .Burger-Wrapper
       display: block
     .image
