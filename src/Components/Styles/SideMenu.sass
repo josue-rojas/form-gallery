@@ -2,11 +2,10 @@
 @import './colors.sass'
 
 .SideMenu
-  position: fixed
+  position: absolute
   overflow-y: scroll
   -webkit-overflow-scrolling: touch
   width: 100vw
-  // position: absolute
   height: 100vh
   background-color: rgba(200, 50, 200, 0.298039)
   padding-top: 50px
@@ -15,7 +14,6 @@
   left: 0
   display: flex
   flex-direction: column
-  // transform: translateX(100%)
   &.active
     animation: slide .4s forwards
   &.not-active
@@ -78,7 +76,6 @@
         &:hover
           background-color: $hover-color
   +large-devices
-    // transform: translateY(0)
     width: 300px
     right: 0
     left: auto
@@ -96,7 +93,6 @@
     opacity: 1
     visibility: visible
   100%
-    // transform: translateX(0)
     transform: translateX(-100%)
     opacity: 0
     visibility: hidden

@@ -5,15 +5,6 @@ import HomeView from './Components/HomeView';
 import AboutView from './Components/AboutView';
 import './App.css';
 
-// class Background extends Component {
-//   render() {
-//     return(
-//       <div className='Background'>
-//       </div>
-//     )
-//   }
-// }
-
 export default class App extends Component {
   constructor(props) {
     super(props);
