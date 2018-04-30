@@ -5,7 +5,7 @@ import HomeView from './Components/HomeView';
 import AboutView from './Components/AboutView';
 import './App.css';
 
-class App extends Component {
+export default class App extends Component {
   constructor(props) {
     super(props);
     this.VIEWS = {
@@ -53,12 +53,11 @@ class App extends Component {
     }[this.state.activeView]
     return (
       <div className={'App ' + (this.state.isMenuActive ? 'menu-active' : '') +  (this.state.fullImageActive ? 'full-image-active' : '')}>
-        <div className={'SideMenu-wrapper'}>
-          <SideMenu
-            onClick={()=> this.menuClick(false)}
-            isActive={this.state.isMenuActive}
-            linkClick={()=> this.menuClick(false)}/>
-        </div>
+        <div className='Background'/>
+        <SideMenu
+          onClick={()=> this.menuClick(false)}
+          isActive={this.state.isMenuActive}
+          linkClick={()=> this.menuClick(false)}/>
         <div className='view-wrapper'>
           {view}
         </div>
@@ -71,5 +70,3 @@ class App extends Component {
     );
   }
 }
-
-export default App;
