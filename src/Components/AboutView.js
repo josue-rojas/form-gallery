@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './Styles/About.css';
 
-// TODO change or add aother box to make text clear to read
 export default class AboutView extends Component {
   render() {
     return(
