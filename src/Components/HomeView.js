@@ -19,7 +19,7 @@ export default class HomeView extends Component {
   }
 
   componentDidMount(){
-    fetch('https://spreadsheets.google.com/feeds/list/1zMxMQObYBTBHPHRinU0qN0avLBWMx0QL7o_KPszkwhk/1/public/values?alt=json')
+    fetch('https://spreadsheets.google.com/feeds/list/1sR-NWFjvt1X6cZDVdefaAbSHqrM4oduELJ5bb0fctn0/1/public/values?alt=json')
     .then((responce) => {
       return responce.json();
     })
