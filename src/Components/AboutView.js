@@ -16,7 +16,7 @@ export default class AboutView extends Component {
           </div>
           <div className='title'>Anyway</div>
           <div className='text'>
-            Check out the responce sheet <a href='https://docs.google.com/spreadsheets/d/e/2PACX-1vTMpkQJCt2pnGtnCQ5S1Xu6HXKGdy7NDJC5Q8P9xk-DBm6CYVlmCS2haDVa3XnZ_Xf1AAIWYq2Nf2CQ/pubhtml'>here</a>
+            Check out the responce sheet <a href='https://docs.google.com/spreadsheets/d/e/2PACX-1vRY92nrjanOfIFDQGuQ93BBK2n1vJEImENpg-wytRsshGuwuZ2MlLvy157nR0ZlIOggzis7F5UO8qtZ/pubhtml'>here</a>
           </div>
         </div>
       </div>
